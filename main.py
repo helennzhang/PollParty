@@ -154,7 +154,7 @@ def get_pollsites():
 
     response = requests.get(api_url, params=params)
 
-    return response.text
+    return json.loads(response.content.decode('utf-8'))
 
 
 if __name__ == "__main__":

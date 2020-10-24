@@ -23,3 +23,7 @@ body{
 	color: #404040;
 	font-family: monospace;
 }
+
+#map {
+	height: 100%;
+  }
