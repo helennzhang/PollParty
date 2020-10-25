@@ -31,13 +31,13 @@ function initMap() {
                     });
                     map.fitBounds(bounds);
                     $("#poll_list").append(`<tr>
-                    <th>` + response.earlyVoteSites[i].address.locationName + `</th>
+                    <td>
+                    <input type="checkbox" name="bar" /> </td>
+                    <td>` + response.earlyVoteSites[i].address.locationName + `</td>
                     <td>`+ response.earlyVoteSites[i].address.line1 + `</td>
                     <td>` + response.earlyVoteSites[i].address.city + `</td>
                     <td>` + response.earlyVoteSites[i].address.state + `</td>
                     <td>` + response.earlyVoteSites[i].address.zip + `</td>
-                    <td><button class="btn btn-primary">Start a Party</button></td>
-                    <td><button class="btn btn-primary">Join a Party</button></td>
                 </tr>`);
                 }
             },
@@ -46,7 +46,23 @@ function initMap() {
     });
 }
 
+function myfunc() {
+    var valueList = [];
+    $('#poll_list tr').each(function () {
+        $(this).find("input[name='bar']:checked").each(function () {
+            var values = [];
+            $(this).closest("td").siblings("td").each(function () {
+                values.push($(this).text());
+            });
+            valueList.push(values.join(", "));
+        });
+    });
+    console.log("(" + valueList.join("),(") + ")");
+}
 
-
+$("#startParty").click(function (event) {
+    console.log(event);
+    myfunc();
+});
 
 

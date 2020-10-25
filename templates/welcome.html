@@ -23,7 +23,9 @@
 <body>
 	<div class="siteheader">Poll Party</div>
 	<div class="singlepanel">
-    <h1><p>Enter Your Address: </p></h1>
+		<h1>
+			<p>Enter Your Address: </p>
+		</h1>
 		<form id="form">
 			<div class="form-row">
 				<label for="address">Address</label>
@@ -33,7 +35,9 @@
 		</form>
 	</div>
 	<div class="singlepanel">
-		<h1><p>Polls in Your Area: </p></h1>
+		<h1>
+			<p>Polls in Your Area: </p>
+		</h1>
 		<table class="col-sm-12 table table-hover" style="background-color: lightpink;">
 			<thead class="thead-light">
 				<tr style="background-color: lightpink">
@@ -42,13 +46,11 @@
 					<th>City</th>
 					<th>State</th>
 					<th>Zip</th>
-					<th>Start a Party</th>
-					<th>Join a Party</th>
 				</tr>
 			</thead>
 			<tbody id="poll_list"></tbody>
 		</table>
-	<!-- INCOMING 	======= 
+		<!-- INCOMING 	======= 
 		<h1><p>Enter Your Address: </p></h1>
 		<div class="form-group">
 			<input type="text" class="form-control" id="address" placeholder="Enter address" name="address">
@@ -64,16 +66,16 @@
 	>>>>>>> main -->
 	</div>
 
-	
+
 	<div class="singlepanel" id="map"></div>
 
 	<div class="doublepanel">
 		<div class="doublepanel left">
-			<button class="btn btn-primary" style="margin-left: 25%; width:50%;  height:auto">Start a Party</button>
+			<button type="submit" value="Start Party" id="startParty">Start Party</button>
 			<p class=text>Going to vote? Register to start a poll party.</p>
 		</div>
 		<div class="doublepanel right">
-			<button class="btn btn-primary" style="margin-left: 25%; width:50%;  height:auto">Join a Party</button>
+			<button type="submit" value="Join Party" id="joinParty">Join Party</button>
 			<p class=text>Want to vote but don't want to go alone? Register to find a poll party to go with.</p>
 		</div>
 	</div>
