@@ -1,53 +1,36 @@
-// Create a new party when clicking "create a party" button
-function newElement() {
-    var li = document.createElement("li");
-   // var inputValue = document.getElementById("myInput").value;
-    //var t = document.createTextNode(inputValue);
-    //li.appendChild(t);
-    if (inputValue === '') {
-      alert("You must write something!");
-    } else {
-      document.getElementById("myUL").appendChild(li);
-    }
-    document.getElementById("myInput").value = "";
-  
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    li.appendChild(span);
-  
-    for (i = 0; i < close.length; i++) {
-      close[i].onclick = function() {
-        var div = this.parentElement;
-        div.style.display = "none";
-      }
-    }
-  }
+let map;
 
-  // when clicking "join a party", load parties
-function newElement() {
-    var li = document.createElement("li");
-    var inputValue = document.getElementById("myInput").value;
-    var t = document.createTextNode(inputValue);
-    li.appendChild(t);
-    if (inputValue === '') {
-      alert("You must write something!");
-    } else {
-      document.getElementById("myUL").appendChild(li);
+function initMap() {
+    const myLatLng = { lat: 38.9869, lng: 76.9426 };
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 4,
+        center: myLatLng,
+    });
+};
+
+
+$("#form").submit(function (event) {
+    event.preventDefault();
+
+    const data = {
+        address: $('#address').val(),
     }
-    document.getElementById("myInput").value = "";
-  
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    li.appendChild(span);
-  
-    for (i = 0; i < close.length; i++) {
-      close[i].onclick = function() {
-        var div = this.parentElement;
-        div.style.display = "none";
-      }
-    }
-  }
+
+    $.ajax({
+        url: '/welcome/pollsites',
+        type: "POST",
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: (response) => {
+            for (let i = 0; i < response.earlyVoteSites.length; i++) {
+                const latLng = new google.maps.LatLng(response.earlyVoteSites[i].latitude, response.earlyVoteSites[i].longitude);
+                var marker = new google.maps.Marker({
+                    position: latLng,
+                    map: map,
+                });
+            }
+        },
+        error: (err) => { console.log(err) }
+    });
+});
+
