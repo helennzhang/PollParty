@@ -7,12 +7,25 @@
 <body>
 <div class="siteheader">Poll Party</div>
 <div class="singlepanel">
-	<h1 class="name">Hi, {{name}}</h1>
-	<h3 class="email">{{email}}</h3>
+	<h1><p>Enter Your Address: </p></h1>
+	<div class="form-group">
+		<input type="address" class="form-control" id="addressInput" aria-describedby="addressHelp" placeholder="Enter address">
+	</div>
+</div>
+<div class="singlepanel">
+	<h1><p>Polls in Your Area: </p></h1>
+	<div class="map">
+	</div>
 </div>
 <div class="doublepanel">
-	<h1 class="doublepanel left"> <p>Hi, {{name}}</p></h1>
-	<h3 class="doublepanel right"><p>{{email}}</p></h3>
+	<div class="doublepanel left"> 
+		<button class="btn-primary" style="margin-left: 25%; width:50%;  height:auto">Start a Party</button>
+		<p class=text>Going to vote? Register to start a party.</p>
+	</div>
+	<div class="doublepanel right">
+		<button class="btn-primary" style="margin-left: 25%; width:50%;  height:auto">Join a Party</button>
+		<p class=text>Want to vote but don't want to go alone? Register to find a poll party to go with.</p>
+	</div> 
 </div>
 </body>
 </html>
