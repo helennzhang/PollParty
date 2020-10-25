@@ -144,7 +144,6 @@ def after_request(response):
 @app.route("/welcome/pollsites", methods=["POST"])
 def get_pollsites():
     data = request.json
-    print(data)
     params = {
         "address": data['address'],
         "electionId": 7000,
@@ -154,7 +153,7 @@ def get_pollsites():
 
     response = requests.get(api_url, params=params)
 
-    return response.text
+    return json.loads(response.content.decode('utf-8'))
 
 
 if __name__ == "__main__":
