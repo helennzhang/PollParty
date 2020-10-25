@@ -1,8 +1,8 @@
 let map;
 
 function initMap() {
-    const myLatLng = { lat: -25.363, lng: 131.044 };
-    const map = new google.maps.Map($("#map"), {
+    const myLatLng = { lat: 38.9869, lng: 76.9426 };
+    const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 4,
         center: myLatLng,
     });
@@ -22,11 +22,11 @@ $("#form").submit(function (event) {
         contentType: 'application/json',
         data: JSON.stringify(data),
         success: (response) => {
-            const sites = response.earlyVoteSites;
-            for (let i = 0; i < sites.length; i++) {
-                new google.maps.Marker({
-                    position: { lat: sites[i].latitude, lng: sites[i].longitude },
-                    map,
+            for (let i = 0; i < response.earlyVoteSites.length; i++) {
+                const latLng = new google.maps.LatLng(response.earlyVoteSites[i].latitude, response.earlyVoteSites[i].longitude);
+                var marker = new google.maps.Marker({
+                    position: latLng,
+                    map: map,
                 });
             }
         },
