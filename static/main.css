@@ -272,6 +272,15 @@
  figure {
    margin: 0 0 1rem;
  }
+
+ #map {
+  width: 96%;
+  height: 100%;
+  overflow: scroll;
+  overflow-y: scroll;
+  position: relative;
+  margin-left: 2%;
+ }
  
  img {
    vertical-align: middle;
