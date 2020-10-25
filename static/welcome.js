@@ -36,6 +36,8 @@ function initMap() {
                     <td>` + response.earlyVoteSites[i].address.city + `</td>
                     <td>` + response.earlyVoteSites[i].address.state + `</td>
                     <td>` + response.earlyVoteSites[i].address.zip + `</td>
+                    <td><button class="btn btn-primary">Start a Party</button></td>
+                    <td><button class="btn btn-primary">Join a Party</button></td>
                 </tr>`);
                 }
             },
