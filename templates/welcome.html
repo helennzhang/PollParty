@@ -23,10 +23,7 @@
 <body>
 	<div class="siteheader">Poll Party</div>
 	<div class="singlepanel">
-<!-- oldhelen -->
-		<!-- <h1 class="name">Polls in your area:</h1> -->
     <h1><p>Enter Your Address: </p></h1>
-		<!-- <h3 class="email">{{email}}</h3> -->
 		<form id="form">
 			<div class="form-row">
 				<label for="address">Address</label>
@@ -34,33 +31,25 @@
 			</div>
 			<button type="submit" class="btn btn-primary" id="submit">Search</button>
 		</form>
-<!-- ======= 
-		<h1><p>Enter Your Address: </p></h1>
-		<div class="form-group">
-			<input type="text" class="form-control" id="address" placeholder="Enter address" name="address">
-		</div>
-		<button type="submit" class="btn btn-primary" id="submit">Search</button>-->
 	</div>
 	<div class="singlepanel">
 		<h1><p>Polls in Your Area: </p></h1>
-		<!-- <div class="map">-->
-		</div>
-<!-- >>>>>>> main -->
+		<table id="gameTable" class="col-sm-12 table table-hover">
+			<thead class="thead-light">
+				<tr>
+					<th>Location Name</th>
+					<th>Address</th>
+					<th>City</th>
+					<th>State</th>
+					<th>Zip</th>
+				</tr>
+			</thead>
+			<tbody id="poll_list"></tbody>
+		</table>
 	</div>
 
+	
 	<div class="singlepanel" id="map"></div>
-	<table id="gameTable" class="col-sm-12 table table-hover">
-		<thead class="thead-light">
-			<tr>
-				<th>Location Name</th>
-				<th>Address</th>
-				<th>City</th>
-				<th>State</th>
-				<th>Zip</th>
-			</tr>
-		</thead>
-		<tbody id="poll_list"></tbody>
-	</table>
 
 	<div class="doublepanel">
     <div class="doublepanel left"> 

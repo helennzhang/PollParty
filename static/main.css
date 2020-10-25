@@ -51,7 +51,6 @@
  }
  
  html {
-   background-color: var(--pink);
    font-family: var(--font-family-sans-serif);
    line-height: 1.15;
    -webkit-text-size-adjust: 100%;
@@ -281,6 +280,7 @@
   position: relative;
   margin-left: 2%;
  }
+
  
  img {
    vertical-align: middle;
