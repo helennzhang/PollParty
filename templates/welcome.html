@@ -12,11 +12,6 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
-	<script src='/static/welcome.js'></script>
-	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEZVE6ADzCTuBKsbHIFt4o12JBZOPA5bE&callback=initMap&libraries=&v=weekly"
-		defer></script>
 	<link rel="stylesheet" type="text/css" href="../static/main.css">
 </head>
 
@@ -38,7 +33,7 @@
 		<h1>
 			<p>Polls in Your Area: </p>
 		</h1>
-		<table class="col-sm-12 table table-hover" style="background-color: lightpink;">
+		<table id="table1" class="col-sm-12 table table-hover" style="background-color: lightpink;">
 			<thead class="thead-light">
 				<tr style="background-color: lightpink">
 					<th>Location Name</th>
@@ -71,14 +66,19 @@
 
 	<div class="doublepanel">
 		<div class="doublepanel left">
-			<button type="submit" value="Start Party" id="startParty">Start Party</button>
+			<input id="startParty" type="button" value="Start Party">
 			<p class=text>Going to vote? Register to start a poll party.</p>
 		</div>
 		<div class="doublepanel right">
-			<button type="submit" value="Join Party" id="joinParty">Join Party</button>
+			<input id="joinParty" type="button" value="Join Party">
 			<p class=text>Want to vote but don't want to go alone? Register to find a poll party to go with.</p>
 		</div>
 	</div>
+	<script src='/static/welcome.js'></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEZVE6ADzCTuBKsbHIFt4o12JBZOPA5bE&callback=initMap&libraries=&v=weekly"
+		defer></script>
 </body>
 
 </html>

@@ -30,9 +30,8 @@ function initMap() {
                         map: map,
                     });
                     map.fitBounds(bounds);
-                    $("#poll_list").append(`<tr>
-                    <td>
-                    <input type="checkbox" name="bar" /> </td>
+                    $("#poll_list").append(`<tr id=${response.earlyVoteSites[i].address.locationName}>
+                    <td><input type="checkbox"/></td>
                     <td>` + response.earlyVoteSites[i].address.locationName + `</td>
                     <td>`+ response.earlyVoteSites[i].address.line1 + `</td>
                     <td>` + response.earlyVoteSites[i].address.city + `</td>
@@ -46,23 +45,44 @@ function initMap() {
     });
 }
 
-function myfunc() {
-    var valueList = [];
-    $('#poll_list tr').each(function () {
-        $(this).find("input[name='bar']:checked").each(function () {
-            var values = [];
-            $(this).closest("td").siblings("td").each(function () {
-                values.push($(this).text());
-            });
-            valueList.push(values.join(", "));
-        });
-    });
-    console.log("(" + valueList.join("),(") + ")");
+
+document.getElementById("startParty").addEventListener('click', startParty, false);
+function startParty() {
+    var table = document.getElementById("table1");
+    var checkBoxes = table.getElementsByTagName("INPUT");
+    var message = {
+        "locationName": "",
+        "zip": ""
+    }
+    for (var i = 0; i < checkBoxes.length; i++) {
+        if (checkBoxes[i].checked) {
+            var row = checkBoxes[i].parentNode.parentNode;
+            message["locationName"] = row.cells[1].innerHTML;
+            message["zip"] = row.cells[5].innerHTML;
+        }
+    }
+    console.log(message)
 }
 
-$("#startParty").click(function (event) {
-    console.log(event);
-    myfunc();
-});
+document.getElementById("joinParty").addEventListener('click', joinParty, false);
+function joinParty() {
+    var table = document.getElementById("table1");
+    var checkBoxes = table.getElementsByTagName("INPUT");
+    var message = {
+        "locationName": "",
+        "zip": ""
+    }
+    for (var i = 0; i < checkBoxes.length; i++) {
+        if (checkBoxes[i].checked) {
+            var row = checkBoxes[i].parentNode.parentNode;
+            message["locationName"] = row.cells[1].innerHTML;
+            message["zip"] = row.cells[5].innerHTML;
+        }
+    }
+    console.log(message)
+}
+
+
+
 
 
