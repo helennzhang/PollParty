@@ -3,8 +3,6 @@
 
 <head>
 	<title>Welcome</title>
-	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'welcome.css')}}">
-	<link rel="stylesheet" type="text/css" href="../static/welcome.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
 		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -25,7 +23,9 @@
 <body>
 	<div class="siteheader">Poll Party</div>
 	<div class="singlepanel">
-		<h1 class="name">Polls in your area:</h1>
+<!-- oldhelen -->
+		<!-- <h1 class="name">Polls in your area:</h1> -->
+    <h1><p>Enter Your Address: </p></h1>
 		<!-- <h3 class="email">{{email}}</h3> -->
 		<form id="form">
 			<div class="form-row">
@@ -34,6 +34,18 @@
 			</div>
 			<button type="submit" class="btn btn-primary" id="submit">Search</button>
 		</form>
+<!-- ======= 
+		<h1><p>Enter Your Address: </p></h1>
+		<div class="form-group">
+			<input type="text" class="form-control" id="address" placeholder="Enter address" name="address">
+		</div>
+		<button type="submit" class="btn btn-primary" id="submit">Search</button>
+	</div>-->
+	<div class="singlepanel">
+		<h1><p>Polls in Your Area: </p></h1>
+		<div class="map">
+		</div>
+<!-- >>>>>>> main -->
 	</div>
 
 	<div id="map"></div>
@@ -51,7 +63,7 @@
 	</table>
 
 	<div class="doublepanel">
-		<div class="doublepanel left">
+    <div class="doublepanel left"> 
 			<button class="btn btn-primary" style="margin-left: 25%; width:50%;  height:auto">Start a Party</button>
 			<p class=text>Going to vote? Register to start a poll party.</p>
 		</div>
