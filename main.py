@@ -155,6 +155,54 @@ def get_pollsites():
 
     return json.loads(response.content.decode('utf-8'))
 
+# get parties and join a party
+@app.route("/welcome/joinparty", methods=["POST"])
+def joinparty():
+    print("here")
+    result = request.json  # Get the data submitted
+    location = result["locationName"]
+    zipcode = result["zip"]
+    
+    valid_parties = []
+
+    # get parties from db that match location, zip
+    try:
+        all_parties = db.child("parties").get()
+        for party in all_parties.each():
+            if party.val()["Location"] == location and party.val()["Zipcode"] == zipcode:
+                valid_parties.append({"Location": party.val()["Location"], 
+                    "Zipcode": party.val()["Zipcode"], 
+                    "people": party.val()["people"]}) #"time": party.val()["time"]
+
+        json_data = json.dumps(valid_parties)
+
+        # send valid parties back 
+        return json_data
+
+    except Exception as e:
+        print(str(e))
+        return str(e) 
+        # If there is any error, do nothing
+
+# create a new party
+@app.route("/welcome/createparty", methods=["POST"])
+def createparty():
+    print("here")
+    result = request.json  # Get the data submitted
+    location = result["locationName"]
+    zipcode = result["zip"]
+    #time = result["Time"]
+    # try to push to db
+    try:
+        #print("here")
+        data = {"Location": location, "Zipcode": zipcode, "people": 1} #, "time": time
+        db.child("parties").push(data)
+        return "success"
+
+    except:
+        return "fail"
+        # If there is any error, do nothing
+
 
 if __name__ == "__main__":
     app.run()

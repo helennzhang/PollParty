@@ -6804,7 +6804,7 @@
  }
  
  .bg-success {
-   background-color: var(--success); !important;
+   background-color: var(--success) !important;
  }
  
  a.bg-success:hover, a.bg-success:focus,

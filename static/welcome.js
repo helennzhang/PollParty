@@ -62,6 +62,17 @@ function startParty() {
         }
     }
     console.log(message)
+    
+    $.ajax({
+        url: '/welcome/createparty',
+        type: "POST",
+        contentType: 'application/json',
+        data: JSON.stringify(message),
+        success: (response) => {
+            
+        },
+        error: (err) => { console.log(err) }
+    });
 }
 
 document.getElementById("joinParty").addEventListener('click', joinParty, false);
@@ -80,6 +91,17 @@ function joinParty() {
         }
     }
     console.log(message)
+
+    $.ajax({
+        url: '/welcome/joinparty',
+        type: "POST",
+        contentType: 'application/json',
+        data: JSON.stringify(message),
+        success: (response) => {
+            console.log(response)
+        },
+        error: (err) => { console.log(err) }
+    });
 }
 
 
